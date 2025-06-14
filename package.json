@@ -1,0 +1,51 @@
+{
+  "name": "icd10-mcp-server",
+  "version": "0.1.0",
+  "description": "Local-first ICD-10 MCP server with SQLite + FTS for sub-100ms lookups",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx --watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --passWithNoTests",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "benchmark": "tsx src/scripts/benchmark.ts",
+    "load-data": "tsx src/scripts/loadSampleData.ts",
+    "download-cms": "tsx src/scripts/downloadCMSData.ts",
+    "parse-cms": "tsx src/scripts/parseCMSData.ts",
+    "load-full-data": "npm run download-cms && npm run parse-cms",
+    "load-synonyms": "tsx src/scripts/loadSynonyms.ts"
+  },
+  "keywords": [
+    "mcp",
+    "icd10",
+    "medical-coding",
+    "healthcare",
+    "sqlite",
+    "fts",
+    "claude"
+  ],
+  "author": "Jonathan Haas",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "@types/node": "^20.0.0",
+    "better-sqlite3": "^11.5.0",
+    "unzipper": "^0.12.3",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/jest": "^29.5.0",
+    "@types/unzipper": "^0.10.10",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

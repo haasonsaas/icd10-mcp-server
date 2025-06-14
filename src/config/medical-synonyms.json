@@ -1,0 +1,91 @@
+{
+  "synonyms": {
+    "colloquial_to_medical": {
+      "broken": ["fracture", "fractured"],
+      "heart attack": ["myocardial infarction", "MI", "cardiac arrest"],
+      "stroke": ["cerebrovascular accident", "CVA"],
+      "high blood pressure": ["hypertension", "hypertensive"],
+      "low blood pressure": ["hypotension", "hypotensive"],
+      "sugar": ["diabetes", "glucose"],
+      "throwing up": ["vomiting", "emesis"],
+      "can't breathe": ["dyspnea", "respiratory distress"],
+      "trouble breathing": ["dyspnea", "respiratory distress"],
+      "chest pain": ["angina", "thoracic pain"]
+    },
+    "body_parts": {
+      "kidney": ["renal", "nephro"],
+      "liver": ["hepatic", "hepato"],
+      "lung": ["pulmonary", "pneumo", "respiratory"],
+      "brain": ["cerebral", "cranial", "neural"],
+      "stomach": ["gastric", "gastro"],
+      "intestine": ["intestinal", "bowel"],
+      "heart": ["cardiac", "cardio"],
+      "bone": ["osseous", "osteo"],
+      "muscle": ["muscular", "myo"],
+      "nerve": ["neural", "neuro"],
+      "blood": ["hemo", "hemato"],
+      "eye": ["ocular", "ophthalm"],
+      "ear": ["otic", "aural"],
+      "skin": ["cutaneous", "dermal"],
+      "throat": ["pharyngeal", "laryngeal"]
+    },
+    "symptoms": {
+      "pain": ["algia", "ache", "painful"],
+      "fever": ["pyrexia", "febrile"],
+      "headache": ["cephalgia", "migraine"],
+      "nausea": ["nauseous", "queasy"],
+      "tired": ["fatigue", "exhaustion"],
+      "dizzy": ["vertigo", "lightheaded"],
+      "swelling": ["edema", "inflammation"],
+      "bleeding": ["hemorrhage", "hemorrhaging"]
+    },
+    "conditions": {
+      "cancer": ["malignant", "neoplasm", "tumor", "carcinoma"],
+      "infection": ["infectious", "sepsis", "septic"],
+      "inflammation": ["inflammatory", "itis"],
+      "diabetes": ["diabetic", "mellitus"],
+      "arthritis": ["arthritic", "joint inflammation"]
+    }
+  },
+  "patterns": [
+    {
+      "pattern": "broken {BODYPART}",
+      "expansion": "fracture {BODYPART}",
+      "priority": 10
+    },
+    {
+      "pattern": "{BODYPART} fracture",
+      "expansion": "fracture {BODYPART}",
+      "priority": 9
+    },
+    {
+      "pattern": "pain in {BODYPART}",
+      "expansion": "{BODYPART} pain OR {BODYPART} algia",
+      "priority": 8
+    },
+    {
+      "pattern": "{BODYPART} pain",
+      "expansion": "{BODYPART} algia OR painful {BODYPART}",
+      "priority": 8
+    },
+    {
+      "pattern": "can't {ACTION}",
+      "expansion": "unable to {ACTION} OR difficulty {ACTION}",
+      "priority": 7
+    },
+    {
+      "pattern": "trouble {ACTION}",
+      "expansion": "difficulty {ACTION} OR {ACTION} problems",
+      "priority": 7
+    }
+  ],
+  "body_parts_list": [
+    "arm", "leg", "bone", "head", "chest", "back", "neck", 
+    "shoulder", "knee", "hip", "ankle", "wrist", "elbow",
+    "hand", "foot", "finger", "toe", "spine", "rib", "skull"
+  ],
+  "actions_list": [
+    "breathe", "breathing", "walk", "walking", "see", "seeing",
+    "hear", "hearing", "swallow", "swallowing", "sleep", "sleeping"
+  ]
+}
