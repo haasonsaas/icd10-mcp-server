@@ -25,7 +25,7 @@ With the full CMS dataset (22,999 codes):
 
 ```bash
 # Clone the repository
-git clone https://github.com/[your-username]/icd10-mcp-server.git
+git clone https://github.com/haasonsaas/icd10-mcp-server.git
 cd icd10-mcp-server
 
 # Install dependencies
